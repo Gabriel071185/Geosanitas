@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/estilos.css">
+    <title>Hospitales</title>
+    <script src="https://kit.fontawesome.com/c9700cd3b7.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="shortcut icon" href="img/icono.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <nav class="padding">
+            <picture>
+                <a href="index.html"><img src="img/logo.png" alt="Logo Geosanitas" class="logo"></a>
+            </picture>
+            <div class="hamburger__menu">
+                <span class="menu__icono"> Menu <img src="icono_menu.svg" alt="icono del menu"> </span>
+                <ul class="menu">
+                    <li><a href="index.html" class="inicio">Inicio</a></li>
+                    <li><a href="emergencias.html" class="emergencias">Emergencias</a></li>
+                    <li><a href="hospitales.html" class="hospitales">¿Dónde me atiendo?</a></li>
+                    <li><a href="conocenos.html" class="conocenos">Conocenos</a></li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+    <main id="main">
+
+
+        <div class="container-hospitales">
+            <aside class="sidebar">
+                <div class="list" v-on:click="acordeon()">
+                    <h3>Listado de hospitales principales</h3><img src="icono_home.svg" class="home"
+                        v-on:click="home()" alt="icono home">
+                </div>
+
+                <ul class="menu_hospitales" ref="menu">
+                    <li v-for="hospital in hospitales" v-on:click="cambiarHospital(hospital, $event)"><a href="#"
+                            ref="link">{{hospital.titulo}}</a></li>
+
+                </ul>
+            </aside>
+
+
+            <section class="inicial" ref="inicial">
+                <div class="card-container">
+                    <div class="card">
+                        <div class="front">
+                            <h3> Hospitales y Centros de Salud en Córdoba.</h3>
+                            <img src="img/publicos.png" alt="Foto de ojo">
+
+                        </div>
+                        <div class="back">
+
+                            <h3> Hospitales Públicos y Centros Provinciales.</h3>
+                            <ul>
+                                <li>Hospitales de salud pública de Cordoba Capital.</li>
+                                <li>Hospitales de salud pública del Interior.</li>
+                                <li>Centros de Atención Primaria de la Salud.</li>
+                                <li>Centros de Rehabilitación.</li>
+                            </ul>
+                            <div class="link">
+
+                                <a href="https://ministeriodesalud.cba.gov.ar/hospitales-y-centros-de-salud/"
+                                    target="_blank">Más
+                                    información</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-container">
+                    <div class="card">
+                        <div class="front">
+                            <h3> Hospital de Apross en Capital</h3>
+                            <img src="img/ferreyra.png" alt="Foto de ojo">
+                        </div>
+
+                        <div class="back">
+                            <h3> Centros de atención de Apross</h3>
+                            <p>Apross es la obra social de los empleados de la provincia de Córdoba.
+                            <p> Sus centros de atención son:
+                                <li>Hospital Ferreyra</li>
+                                <li>Clínica Sucre</li>
+                            </p>
+                            </p>
+                            <div class="link">
+
+                                <a href="https://www.desuso.apross.gov.ar/17-Hospital-Raul-Angel-Ferreyra.note.html"
+                                    target="_blank"> Más
+                                    información</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-container">
+                    <div class="card">
+                        <div class="front">
+                            <h3> Hospitales de la Universidad Nacional de Córdoba.</h3>
+                            <img src="img/clinicas.jpg" alt="Foto del Hospital Nacional de Clínicas">
+                        </div>
+
+                        <div class="back">
+                            <h3>Hospitales Escuela de la Facultad de Ciencias Médicas (F.C.M.)</h3>
+
+                            <ul>
+
+                                <li>Hospital Nacional de Clínicas</li>
+                                <li>Hospital Universitario de Maternidad y Neonatología</li>
+                            </ul>
+                            <div class="link">
+                                <a href="https://fcm.unc.edu.ar/hospitales/" target="_blank">Más información</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-container">
+                    <div class="card">
+                        <div class="front">
+                            <h3> Clínicas Privadas de la Ciudad de Córdoba</h3>
+                            <img src="img/privado.png" alt="Foto de ojo">
+                        </div>
+                        <div class="back">
+                            <h3>Algunas Clínicas Privadas de Córdoba.</h3>
+                            <ul>
+                                <li>Clínica Universitaria Reina Fabiola</li>
+                                <li>Sanatorio Allende</li>
+                                <li>Hospital Privado Universitario</li>
+                                <li>Instituto Modelo de Cardiología</li>
+                                <li>Hospital Italiano </li>
+                                <li>Clínica
+                                    Vélez Sárfield</li>
+
+                            </ul>
+                            <div class="link">
+                                <a href="https://soldepiedra.com.ar/listado-de-clinicas-y-sanatorios-de-cordoba-capital/"
+                                    target="_blank">Más información</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="hospital hidden" ref="hospital">
+                <h3 class="titulo">{{titulo}}</h3>
+                <div class="imagen">
+                    <img :src="scr" :alt="titulo">
+                </div>
+                <div class="info">
+                    <p><b>Dependencia:</b> {{dependencia}} </p>
+
+                    <p><b>Teléfono:</b> {{telefono}} </p>
+                    <p> <b>Direccion: </b>{{direccion}}</p>
+                </div>
+                <div class="ubicacion">
+                    <iframe :src="ubicacion" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </section>
+        </div>
+
+    </main>
+    <footer>
+        <p>Ante cualquier emergencia comunicarse al 107</p>
+        <div class="footer__redes padding">
+            También estamos en:
+            <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://twitter.com/?lang=es" target="_blank"><i class="fa-brands fa-square-twitter"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
+
+        </div>
+        <div class="footer__copy padding">
+            <picture class="footer__copy__item padding">
+                <img src="img/logo.png" alt="Logo Geosanitas" class="logo">
+            </picture>
+            <div class="footer__copy__item padding" id="copyright">
+            </div>
+        </div>
+
+    </footer>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/hospitales.js"></script>
+
+</body>
+
+</html>
